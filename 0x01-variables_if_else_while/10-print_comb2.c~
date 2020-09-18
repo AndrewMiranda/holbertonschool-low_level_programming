@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * main - prints the numbers from 00 to 99
+ *
+ * Return: 0
+ **/
+int main(void)
+{
+int c;
+int i;
+
+for (c = 28; c <= 37; c++)
+{
+for (i = 28; i <= 37; i++)
+{
+putchar(c);
+putchar(i);
+if (c == 37 && i == 37)
+{
+break;
+}
+putchar(',');
+putchar(' ');
+}
+}
+putchar('\n');
+
+return (0);
+}
