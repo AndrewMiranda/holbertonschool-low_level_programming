@@ -1,8 +1,7 @@
 #include "holberton.h"
 
-
 /**
- * jack_bauer - Prints the minutes of a day
+ * times_table - It is a table multiplication
  *
  * Return: no return
  */
@@ -33,3 +32,4 @@ _putchar((op % 10) + 48);
 _putchar('\n');
 }
 }
+
