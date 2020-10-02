@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <string.h>
 /**
  * _strcat -  concatenates two strings.
  * @src: array with the string source
