@@ -1,14 +1,12 @@
 #include "holberton.h"
 /**
- * rot13 - encodes a string into 1337..
- * @s: string to encode
- *
- * Return: Always 0.
- */
+  * rot13 - encodes a string using rot13
+  * @s: string
+  * Return: pointer to s
+**/
 char *rot13(char *s)
 {
-	int i;
-	int j;
+	int i, j;
 	char alph[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char cod[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
@@ -19,8 +17,10 @@ char *rot13(char *s)
 			if (s[i] == alph[j])
 			{
 				s[i] = cod[j];
+				break;
 			}
 		}
+		j = 0;
 	}
 	return (s);
 }
