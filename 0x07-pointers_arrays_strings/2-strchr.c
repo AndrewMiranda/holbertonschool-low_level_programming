@@ -2,7 +2,7 @@
 
 char *_strchr(char *s, char c)
 {
-  unsigned int a;
+        unsigned int a;
 	char *result;
 	char *changed;
 	*changed = c;
