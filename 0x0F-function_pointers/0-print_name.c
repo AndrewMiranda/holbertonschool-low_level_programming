@@ -1,13 +1,19 @@
+#include <stdio.h>
 #include "function_pointers.h"
 /**
- * print_name - Prints a name from a function pointer.
- * @name: Input name variable.
- * @f: Function pointer.
+ * print_name - it's passed parameter through function pointer
+ * @name: name of the person
+ * @f: name function pointer
  *
  * Return: Nothing.
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (name && f)
-		f(name);
+	if (!f)
+		return;
+
+	if (!name)
+		return;
+
+	f(name); /* (*f)(name) is the same and both is dereference */
 }
