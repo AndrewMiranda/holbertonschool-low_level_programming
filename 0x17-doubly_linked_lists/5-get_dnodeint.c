@@ -1,27 +1,38 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "lists.h"
 
-/**
- * get_dnodeint_at_index - returns the nth node of a dlistint_t linked list.
- * @head: input header pointer
- * @index: ndex of the node, starting from 0
- * Return: if the node does not exist, return NULL
- */
-
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *node;
+	dlistint_t *tmp = *h, *tmpcount = *h, *tmp2;
+	dlistint_t *new_node;
 	unsigned int cont = 0;
 
-	node = head;
-	while (node != NULL && cont <= index)
+	if (*h == NULL)
+		return (NULL);
+	while (tmpcount != NULL)
+		tmpcount = tmpcount->next, cont++;
+	if (idx > cont)
+		return (NULL);
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	if (idx == 0)
 	{
-		if (cont == index)
-			return (node);
-		node = node->next;
-		cont++;
+		new_node->prev = NULL, new_node->next = *h;
+		if (*h)
+			(*h)->prev = new_node;
+		*h = new_node;
+		return (new_node);
 	}
-	return (NULL);
+	for (cont = 0; cont < idx; cont++)
+		tmp2 = tmp, tmp = tmp->next;
+	new_node->next = tmp;
+	new_node->prev = tmp2;
+	tmp2->next = new_node;
+	if (tmp)
+		tmp->prev = new_node;
+	return (new_node);
 }
+
